@@ -1,36 +1,64 @@
 var test = require('tap').test
   , woosh = require('../')
+  , fs = require('fs')
 
-test('template one string', function(t) {
+test('template one string synchronously', function(t) {
+  var html = fs.readFileSync(__dirname + '/fixtures/template_one_target.html', 'utf8')
   var stream = woosh(__dirname + '/fixtures/template_one.html');
 
-  stream.select('.b span', function (node) {
-    node.update(function (html) {
-      return html.toUpperCase();
-    });
-  });
-  
-  tr.select('.c', function (node) {
+  stream('.b span', function(node) {
+    node.update(function(html) { return html.toUpperCase() })
+  })
+  ('.c', function (node) {
     node.update('---');
-  });
-  
-  tr.select('.d', function (node) {
+  })
+  ('.d', function (node) {
     node.remove();
-  });
-  
-  tr.select('.e', function (node) {
+  })
+  ('.e', function (node) {
     node.remove();
-  });
-  
-  tr.select('.f', function (node) {
+  })
+  ('.f', function (node) {
     node.replace('<b>NOTHING TO SEE HERE</b>');
-  });
+  })
+  ;
   
-  var data = '';
-  tr.on('data', function (buf) { data += buf });
+  var data = ''
+  stream.on('data', function (buf) { data += buf })
 
-  tr.on('end', function () {
-    t.equal(data, html);
-    t.end();
-  });
+  stream.on('end', function () {
+    t.equal(data, html)
+    t.end()
+  })
+})
+
+
+test('template one string asynchronously', function(t) {
+  var html = fs.readFileSync(__dirname + '/fixtures/template_one_target.html', 'utf8')
+  var stream = woosh(__dirname + '/fixtures/template_one.html');
+
+  stream('.b span', function(node) {
+    node.update(function(html, done) { setTimeout(function() { done(html.toUpperCase()) }, 100) })
+  })
+  ('.c', function (node) {
+    node.update('---');
+  })
+  ('.d', function (node) {
+    node.remove();
+  })
+  ('.e', function (node) {
+    node.remove();
+  })
+  ('.f', function (node) {
+    node.replace(function(html, done) { setTimeout(function() { done('<b>NOTHING TO SEE HERE</b>') }, 100) })
+  })
+  ;
+  
+  var data = ''
+  stream.on('data', function (buf) { data += buf })
+
+  stream.on('end', function () {
+    t.equal(data, html)
+    t.end()
+  })
 })
