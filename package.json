@@ -1,0 +1,24 @@
+{
+  "name": "woosh",
+  "description": "Streaming composable templates",
+  "version": "0.0.1",
+  "author": {
+    "name": "Pedro Teixeira"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/pgte/woosh.git" 
+  },
+  "tags": ["streaming", "http", "framework"],
+  "main": "./woosh.js",
+  "engines": { "node": ">= 0.6.0" },
+  "dependencies": {
+    "trumpet": "*"
+  },
+  "devDependencies": {
+    "tap": "*"
+  },
+  "scripts": {
+    "test": "node node_modules/tap/bin/tap.js test/test.js"
+  }
+}
