@@ -3,7 +3,7 @@ var trumpet = require('trumpet')
   , Stream = require('stream').Stream
   , inherits = require('util').inherits
 
-function Woosh(filePath) {
+function Woosh(filePath, selectors) {
   var tr = trumpet()
   fs.createReadStream(filePath).pipe(tr);
   
@@ -17,6 +17,12 @@ function Woosh(filePath) {
 
   tr.on('data', function(d) { stream.emit('data', d) })
   tr.on('end', function() { stream.emit('end') })
+
+  if (selectors && typeof selectors == 'object') {
+    for(var selector in selectors) {
+      stream(selector, selectors[selector])
+    }
+  }
 
   return stream;
 
