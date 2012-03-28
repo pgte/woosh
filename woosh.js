@@ -8,6 +8,13 @@ function Woosh(filePath, selectors) {
   fs.createReadStream(filePath).pipe(tr);
   
   function stream(selector, callback) {
+    // Default behaviour for inline values
+    if (typeof callback !== 'function') {
+      var value = callback
+      callback = function(node) {
+        node.update(value)
+      }
+    }
     tr.select(selector, callback)
     return stream
   }
