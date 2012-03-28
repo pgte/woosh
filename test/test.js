@@ -129,12 +129,12 @@ test('compose 1 with no inner changes', function(t) {
 })
 
 test('compose 1 with some inner changes', function(t) {
-  var html = fs.readFileSync(__dirname + '/fixtures/template_one_composed_target.html', 'utf8')
+  var html = fs.readFileSync(__dirname + '/fixtures/template_one_composed_target_2.html', 'utf8')
   var stream = woosh(__dirname + '/fixtures/template_one.html');
 
   stream('.b span', function(node) {
     node.update(function(html, done) {
-      done(woosh(__dirname + '/fixtures/partial_one.html'))
+      done(woosh(__dirname + '/fixtures/partial_one.html', {'.d': 'HAHA'}))
     })
   })
   ('.c', function (node) {
@@ -147,7 +147,7 @@ test('compose 1 with some inner changes', function(t) {
     node.remove()
   })
   ('.f', function (node) {
-    node.replace(woosh(__dirname + '/fixtures/partial_two.html'))
+    node.replace(woosh(__dirname + '/fixtures/partial_two.html', {'.e': function(node) { node.replace('HEHE')}}))
   })
   ;
   
