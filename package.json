@@ -1,7 +1,7 @@
 {
     "name" : "woosh",
     "version" : "0.1.0",
-    "description" : "parse and transform streaming html using css selectors",
+    "description" : "parse and transform streaming html using css selectors in a composable way",
     "main" : "index.js",
     "directories" : {
         "lib" : ".",
@@ -23,7 +23,7 @@
     },
     "repository" : {
         "type" : "git",
-        "url" : "http://github.com/substack/node-trumpet.git"
+        "url" : "http://github.com/pgte/woosh.git"
     },
     "keywords" : [
         "html",
@@ -34,10 +34,10 @@
         "css"
     ],
     "author" : {
-        "name" : "James Halliday",
-        "email" : "mail@substack.net",
-        "url" : "http://substack.net"
+        "name" : "Pedro Teixeira",
+        "email" : "pedro.teixeira@gmail.com",
+        "url" : "http://metaduck.com"
     },
     "license" : "MIT/X11",
-    "engine" : { "node" : ">=0.4" }
+    "engine" : { "node" : ">=0.8" }
 }
