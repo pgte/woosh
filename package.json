@@ -1,24 +1,43 @@
 {
-  "name": "woosh",
-  "description": "Streaming composable templates",
-  "version": "0.0.1",
-  "author": {
-    "name": "Pedro Teixeira"
-  },
-  "repository": {
-    "type": "git",
-    "url": "http://github.com/pgte/woosh.git" 
-  },
-  "tags": ["streaming", "http", "framework"],
-  "main": "./woosh.js",
-  "engines": { "node": ">= 0.6.0" },
-  "dependencies": {
-    "trumpet": "*"
-  },
-  "devDependencies": {
-    "tap": "*"
-  },
-  "scripts": {
-    "test": "node node_modules/tap/bin/tap.js test/test.js"
-  }
+    "name" : "woosh",
+    "version" : "0.1.0",
+    "description" : "parse and transform streaming html using css selectors",
+    "main" : "index.js",
+    "directories" : {
+        "lib" : ".",
+        "example" : "example",
+        "test" : "test"
+    },
+    "dependencies" : {
+        "sax-pausable" : "0.1.x",
+        "ent" : "~0.0.4",
+        "bufferedstream": "1.0.x",
+        "middle": "0.0.x",
+        "async": "0.1.x"
+    },
+    "devDependencies" : {
+        "tap" : "~0.2.3"
+    },
+    "scripts" : {
+        "test" : "tap test/*.js"
+    },
+    "repository" : {
+        "type" : "git",
+        "url" : "http://github.com/substack/node-trumpet.git"
+    },
+    "keywords" : [
+        "html",
+        "streaming",
+        "parser",
+        "transform",
+        "selectors",
+        "css"
+    ],
+    "author" : {
+        "name" : "James Halliday",
+        "email" : "mail@substack.net",
+        "url" : "http://substack.net"
+    },
+    "license" : "MIT/X11",
+    "engine" : { "node" : ">=0.4" }
 }
