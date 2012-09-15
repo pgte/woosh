@@ -1,6 +1,6 @@
 {
     "name" : "woosh",
-    "version" : "0.1.0",
+    "version" : "0.1.1",
     "description" : "parse and transform streaming html using css selectors in a composable way",
     "main" : "index.js",
     "directories" : {
