@@ -1,5 +1,6 @@
 var sax = require('sax-pausable');
 var select = require('./lib/select');
+var map = require('./lib/map');
 var BufferedStream = require('bufferedstream');
 var Middle = require('middle');
 
@@ -142,6 +143,8 @@ module.exports = function (opts) {
             stream.post('script', src);
         });
     };
+
+    middle.map = map;
     
     return middle;
 };

@@ -9,8 +9,6 @@ test('update', function (t) {
     var tr = trumpet();
     fs.createReadStream(__dirname + '/update.html').pipe(tr);
     
-    var spans = [ 'tacos', 'y', 'burritos' ];
-    
     tr.select('.b span', function (node) {
         node.update(function (html) {
             return html.toUpperCase();
