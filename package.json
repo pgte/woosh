@@ -9,8 +9,8 @@
         "test" : "test"
     },
     "dependencies" : {
-        "sax-pausable" : "0.1.x",
-        "ent" : "~0.0.4",
+        "sax-pausable": "0.1.x",
+        "he": "~0.4.1",
         "bufferedstream": "1.0.x",
         "middle": "0.0.x",
         "async": "0.1.x"
